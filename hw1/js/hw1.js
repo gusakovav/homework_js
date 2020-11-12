@@ -20,9 +20,10 @@ console.log(sum);
 
 // Задание 3
 let x, y;
-x = 3;
-y = 7;
-x = x + 6 - 2;
-y = y + 5 - 9;
+x = 6;
+y = 86;
+x = x + y;
+y = x - y;
+x = x - y;
 console.log(x);
 console.log(y);
