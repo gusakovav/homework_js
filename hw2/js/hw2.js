@@ -27,13 +27,13 @@ let salary = 100000;
 let res;
 
 if (lang === 'javascript') {
-if (salary >= 100000) {
+if (salary > 100000) {
     res = 'Приглашаем на собеседование';
-} else if (salary < 100000) { 
+} else if (salary <= 100000) { 
     res = 'Мы Вам перезвоним'
 }
 } else {
-    res = 'Мы Вам перезвоним'
+    res = 'Мы не можем пригласить Вас на собеседование'
 }
 console.log(res);
 
