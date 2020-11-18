@@ -18,16 +18,13 @@ while (e >= 0) {
 
 // Задача 3
 
-let plate = 7, washer = 2.5; // как в while объявить два условия? почему-то мой код этого задания подвешиванит страницу, она не прогружается
-    while (plate > 0) {
-        if (washer > 0) {
+let plate = 12, washer = 2.5; 
+    while (plate > 0 && washer > 0) {
             plate -= 1;
             washer -= 0.5;
             console.log(`Осталось моющего средства: ${washer}`);
             console.log(`Осталось тарелок: ${plate}`);
         }
-    }
-
 
 // Задача массив 1
 
@@ -35,10 +32,10 @@ let array = [];
 array.length = 10;
 // console.log(array);
 for (let index = 0; index < array.length; index++) {
-    array[index] = Math.floor(Math.random()*100);
+    array[index] = Math.floor(Math.random()*array.length);
 }
 console.log(array)
-console.log(array[Math.floor(Math.random()*100)]) // вывод рандом значения
+console.log(array[Math.floor(Math.random()*array.length)]) // вывод рандом значения
 let summ = 0; 
     for (let element of array) { 
         summ += element;
@@ -50,19 +47,31 @@ console.log(mid);
 
 // Задача массив 2
 
-let arr = [4, 9, 1, 3, 5, 2, 8]; // не понял
+let arr = [4, 9, -1, 3, 5, 2, 8]; 
+    for (let first = 0; first < arr.length; first++) {
+        for (let second = first + 1; second < arr.length; second++) {
+            if (first !== second && arr[first] + arr[second] === 7) {
+                console.log(`Число массива ${arr[first]} с индексом ${first} и число массива ${arr[second]} с индексом ${second} в сумме равны 7`);
+            }
+        }
+    }
 
 
 // Задача массив 3
 
-let nums = [    // не понял, как сложить многомерный массив, выводится просто в сроку при моём решении
+let nums = [    
     [23, 56, 78, 12, -900],
     [0, 0, 67, -3, 621],
     [89, 67, 12],
     [23, 56, 78, 12, -900, 89, 33, 21]
  ];
-let sum = 0; 
-    for (let elem of nums) { 
-        sum += elem;
+let elem, sum = 0; 
+
+    for (let elemArr of nums) { 
+        for (let elem of elemArr) {
+            elem += 10;
+            console.log('elem = ' + elem);
+            sum += elem;
+        }
 }
 console.log(sum);
