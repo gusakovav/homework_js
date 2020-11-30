@@ -40,7 +40,7 @@ function sumOfNums(num) {
         if (num < 10) return num; 
             return num%10 + sumOfNums(Math.floor(num/10));
 }
-console.log(sumOfNums(-334));
+console.log(sumOfNums(334));
 
 // Проверка на число
 // value === "" || value === null || !isFinite(value)) break;
