@@ -1,97 +1,21 @@
 'use strict';
 
-// Задание 1
-// Написать функцию генерации карточек с информацией о животных.
+// Задача на генерацию таблицы (часть 2):
+// при нажатии на заголовок ячейки должна происходить сортировка по соответствующему столбцу, например:
 
-function genCats() {
-    return [
-        {
-            "name": "Люся",
-            "age": "1 год",
-            "color": "трехцветная",
-            "additional_info": {"vaccinations": true, "passport": true}
-        },
-        {
-            "name": "Том",
-            "age": "3 месяца",
-            "color": "белый",
-            "additional_info": {"vaccinations": false, "passport": false}
-        },
-        {
-            "name": "Макс",
-            "age": 2,
-            "color": "серый",
-            "additional_info": {"vaccinations": false, "passport": true}
-        },
-        {
-            "name": "Василий",
-            "age": 3,
-            "color": "черный",
-            "additional_info": {"vaccinations": true, "passport": true}
-        }
-    ];
-}
-
-function generateCatsCards(catsElem) {
-  let cats = genCats();
-  for (let i = 0; i < cats.length; i++) {
-    let card = document.createElement("div");
-    card.classList.add("card");
-
-    let title = document.createElement("h2");
-
-    let catsName = document.createElement("span");
-    catsName.innerText = cats[i].name.toUpperCase();
-
-    let line = document.createElement("span");
-    line.innerText = " | ";
-
-    let catsAge = document.createElement("span");
-    catsAge.innerText = `Возраст: ${cats[i].age}`;
-
-    let catsInfo = document.createElement("div");
-    catsInfo.classList.add("catsInfo");
-
-    let imgCat = document.createElement("div");
-    imgCat.classList.add("imageCat");
-
-    let img = document.createElement("img");
-    img.setAttribute("src", "img/" + (i + 1) + ".jpg");
-
-    let info = document.createElement("div");
-    info.classList.add("info");
-
-    let addInfo = document.createElement("h3");
-    addInfo.innerText = "Дополнительная информация:";
-
-    let catColor = document.createElement("p");
-    catColor.innerText = `Цвет: ${cats[i].color}`;
-
-    let catDoc = document.createElement("p");
-    catDoc.innerText = `Документы: ${cats[i].additional_info.passport ? "Есть" : "Нет"}`;
-
-    let catVac = document.createElement("p");
-    catVac.innerText = `Прививки: ${cats[i].additional_info.vaccinations ? "Есть" : "Нет"}`;
-
-    info.append(addInfo, catColor, catDoc, catVac);
-    imgCat.append(img);
-    catsInfo.append(imgCat, info);
-    title.append(catsName, line, catsAge);
-    card.append(title, catsInfo);
-    catsElem.append(card);
-  }
-}
-generateCatsCards(document.querySelector(".cats"));
-
-
-
-// Задание 2
-// Написать функцию generateTable, которая принимает на вход массив объектов и создает таблицу.
-// Функция не должна быть привязаны к конкретным значениям.
-// Заголовки ячеек - названия свойств.
-// Например, для articles заголавками будут: id, title, text, author;
-//  для goods заголавками будут: title, price, count.
- // Массивы для тестирования:
+//   Например, для массива goods из файла таблица будет следующего вида:
+//    TITLE     PRICE   COUNT
+//   Пианино    3000     25
+//   Гитара     1200     40
+//   Барабаны   2700     12
+//   и тд
+//   Вывод после нажатия на COUNT:
+//    TITLE     PRICE   COUNT
+//   Барабаны   2700     12
+//   Пианино    3000     25
+//   Гитара     1200     40
+//   и тд      
+  
  let articles = [
     {
         id: 1,
